@@ -49,4 +49,4 @@ f1_score = evaluator.evaluate(test_predictions)
 print("Evaluated F1 Score: {:.4f}".format(f1_score))
 
 # Saving the trained model
-trained_random_forest_model.save("trainingweights")
+trained_random_forest_model.save("file:///home/ec2-user/trainingweights")
