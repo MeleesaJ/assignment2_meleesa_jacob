@@ -26,7 +26,7 @@ csv_schema = StructType([
 ])
 
 # Reading and processing the dataset
-wine_dataset = spark.read.format("csv").schema(csv_schema).options(header=True, delimiter=';', quote='"', ignoreLeadingWhiteSpace=True, ignoreTrailingWhiteSpace=True).load('file:///home/ec2-user/assignment2_meleesa_jacob/TrainingDataset.csv')
+wine_dataset = spark.read.format("csv").schema(csv_schema).options(header=True, delimiter=';', quote='"', ignoreLeadingWhiteSpace=True, ignoreTrailingWhiteSpace=True).load('file:///home/ec2-user/TrainingDataset.csv')
 wine_dataset = wine_dataset.toDF(*[column.replace('"', '') for column in wine_dataset.columns])
 wine_dataset = wine_dataset.withColumn("quality", F.when(F.col("quality") > 7, 1).otherwise(0))
 
